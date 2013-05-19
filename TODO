@@ -1,0 +1,5 @@
+1, sort out the order of loading RED_LIGHT_RULES and the middleware in
+lib/red_light/railtie.rb
+
+2, allow user configure authentication methods, now we are using
+:authenticate_user! from devise, we should allow the user customize this
