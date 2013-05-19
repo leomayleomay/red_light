@@ -30,7 +30,7 @@ module RedLight
             controller = path[:controller]
             action = path[:action]
 
-            if RED_LIGHT_RULES[controller] && RED_LIGHT_RULES[controller].include?(action)
+            if ::RED_LIGHT_RULES[controller] && ::RED_LIGHT_RULES[controller].include?(action)
               part.gsub!(/action="#{form_action}"/, "action='javascript:void(0);' rel='fancy_login'")
             end
           rescue ActionController::RoutingError => e
@@ -45,7 +45,7 @@ module RedLight
             controller = path[:controller]
             action = path[:action]
 
-            if RED_LIGHT_RULES[controller] && RED_LIGHT_RULES[controller].include?(action)
+            if ::RED_LIGHT_RULES[controller] && ::RED_LIGHT_RULES[controller].include?(action)
               href_regex = Regexp.compile(Regexp.escape('href="/'+href+'"'))
               part.gsub!(href_regex, "href='/#{href}' rel='fancy_login'")
             end
