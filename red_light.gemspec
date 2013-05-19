@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = RedLight::VERSION
   spec.authors       = ["Hao Liu"]
   spec.email         = ["leomayleomay@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{a gem used to add fancy login to your rails application}
+  spec.summary       = %q{fancy login it is}
+  spec.homepage      = "https://github.com/leomayleomay/red_light"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
