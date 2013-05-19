@@ -1,6 +1,6 @@
 # RedLight
 
-TODO: Write a gem description
+red_light is a gem used to help you incorporate fancy login in your Rails application effortlessly.
 
 ## Installation
 
@@ -15,10 +15,12 @@ And then execute:
 Or install it yourself as:
 
     $ gem install red_light
+    
+## Demo
+[fancy-login](fancy-login.herokuapp.com)
 
 ## Usage
-
-TODO: Write usage instructions here
+[this](https://github.com/leomayleomay/red_light_example) is an example app built for illustrating how to incorporate red_light within your Rails application.
 
 ## Contributing
 
