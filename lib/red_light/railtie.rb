@@ -15,7 +15,7 @@ module RedLight
         next if filter.nil?
 
         controller_name = controller.to_s.underscore.split("_controller").first
-        ::RED_LIGHT_RULES[controller_name] = Array(c.action_methods)
+        ::RED_LIGHT_RULES[controller_name] = Array(controller.action_methods)
 
         options = filter.options
         if options[:only].present? && Array(options[:only]).any?
