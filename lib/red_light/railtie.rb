@@ -3,24 +3,18 @@ require 'red_light/fancy_login'
 module RedLight
   class Railtie < Rails::Railtie
     initializer "red_light.configure_rails_initialization" do |app|
-      app.middleware.use RedLight::FancyLogin
-    end
-
-    ActiveSupport.on_load(:action_controller) do
       ::RED_LIGHT_RULES = Hash.new([])
 
-      controllers = Dir.glob("app/controllers/**/*_controller.rb").map do |entry|
-        File.basename(entry, ".rb").classify.constantize
-      end
+      Dir.glob("app/controllers/**/*_controller.rb").map do |entry|
+        controller = File.basename(entry, ".rb").classify.constantize
 
-      controllers.each do |c|
-        filter = c._process_action_callbacks.select{ |callback|
+        filter = controller._process_action_callbacks.select{ |callback|
           callback.filter == :authenticate_user!
         }.first
 
         next if filter.nil?
 
-        controller_name = c.to_s.underscore.split("_controller").first
+        controller_name = controller.to_s.underscore.split("_controller").first
         ::RED_LIGHT_RULES[controller_name] = Array(c.action_methods)
 
         options = filter.options
@@ -34,6 +28,8 @@ module RedLight
       end
 
       ::RED_LIGHT_RULES.freeze
+
+      app.middleware.use RedLight::FancyLogin
     end
   end
 end
