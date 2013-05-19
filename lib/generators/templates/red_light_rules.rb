@@ -2,7 +2,7 @@
 RED_LIGHT_RULES = Hash.new([])
 
 controllers = Dir.glob("app/controllers/**/*_controller.rb").map do |entry|
-  entry.gsub(/\.rb$/, "").camelize.constantize
+  File.basename(entry, ".rb").classify.constantize
 end
 
 controllers.each do |c|
