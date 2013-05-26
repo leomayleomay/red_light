@@ -20,7 +20,8 @@ Or install it yourself as:
 [fancy-login](http://fancy-login.herokuapp.com)
 
 ## Usage
-[this](https://github.com/leomayleomay/red_light_example) is an example app built for illustrating how to incorporate red_light within your Rails application.
+
+	$ rails generate red_light:install
 
 ## Contributing
 

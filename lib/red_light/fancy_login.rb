@@ -71,7 +71,7 @@ module RedLight
         controller = File.basename(entry, ".rb").classify.constantize
 
         filter = controller._process_action_callbacks.select{ |callback|
-          callback.filter == :authenticate_user!
+          RedLight.authentications.include?(callback.filter)
         }.first
 
         next if filter.nil?
